@@ -1,13 +1,50 @@
 package com.company;
 
+import com.sun.xml.internal.fastinfoset.util.StringArray;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Card {
     /*Create a class called Card
-                A card should have at least 3 properties: suit, rank, and value
-                Assign each Card a Suit (Spades, Clubs, Diamond, and Heart)
-                Assigning each card a Rank (2-10, Jack, Queen, King, Ace)
-                Assigning each card a value to 2-11
-                This should be done to recreate the 52 unique cards in a deck
-     */
+               -- A card should have at least 3 properties: suit, rank, and value
 
+     */
+    private String suit;
+    private String rank;
+    private int value;
+
+    public void setSuit(String suit){
+        this.suit = suit;
+    }
+
+    public void setRank(String rank){
+        this.rank = rank;
+    }
+
+    public void setValue(int value)
+    {
+        this.suit = suit;
+    }
+
+    public String getSuit(){
+        return suit;
+    }
+
+    public String getRank(){
+        return rank;
+    }
+
+    public int getValue(){
+        return value;
+    }
+
+    public Card(String cardSuit, String cardRank, int cardValue)
+    {
+        suit = cardSuit;
+        rank = cardRank;
+        value = cardValue;
+        System.out.println("Suit: " + suit + '\n' + "Rank: " + rank + '\n' + "Value: " + value + '\n');
+    }
 
 }//end class Card

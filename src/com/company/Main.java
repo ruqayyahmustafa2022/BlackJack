@@ -1,13 +1,11 @@
 package com.company;
 
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
 	/*
-
-
-
-
         In your main class, deal the user a hand of two cards
         Display the total of the two card values to the user
         If the cards equal 21, declare Black Jack and congratulate the user.
@@ -17,6 +15,12 @@ public class Main {
         Super Bonus: Can you handle the dealer also playing a hand to see who wins with the closest score to 21?
 
 	 */
+        //----Program Starts Here-----
+        Random rnd = new Random(52);
+        Dealer pickCard = new Dealer();
+
+
+
 
     }//end main
 }//end Main
