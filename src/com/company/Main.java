@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Random;
+import java.util.*;
 
 public class Main {
 
@@ -18,6 +19,9 @@ public class Main {
         //----Program Starts Here-----
         Random rnd = new Random(52);
         Dealer pickCard = new Dealer();
+        Deck newDeck = new Deck();
+
+        newDeck.buildDeck();
 
 
 

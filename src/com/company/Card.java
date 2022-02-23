@@ -39,11 +39,17 @@ public class Card {
         return value;
     }
 
+
     public Card(String cardSuit, String cardRank, int cardValue)
     {
         suit = cardSuit;
         rank = cardRank;
         value = cardValue;
+        //System.out.println("Suit: " + suit + '\n' + "Rank: " + rank + '\n' + "Value: " + value + '\n');
+    }
+
+    //test
+    public void Print(){
         System.out.println("Suit: " + suit + '\n' + "Rank: " + rank + '\n' + "Value: " + value + '\n');
     }
 

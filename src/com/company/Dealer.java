@@ -1,51 +1,41 @@
 package com.company;
 import java.util.*;
 
-public class Dealer {
+public class Dealer{
     /*Create a new class called Dealer
-                Dealer should have a method named “deal”, that returns two random Cards and removes them from the deck
-        Dealer should have a method named “hit”, that returns a random single card and removes it from the deck
+           -- Dealer should have a method named “deal”, that returns two random Cards and removes them from the deck
+           --Dealer should have a method named “hit”, that returns a random single card and removes it from the deck
 
      */
-    private List pickCards;
-    Random rnd = new Random(52);
-    Deck pickCard = new Deck();
+
+    private List<Card> deckOfCards;
+    Deck deckBuilder = new Deck();  //new instance of the deck class w/ deck of cards and
+
+
+
+    public void shuffleDeck(){
+        deckOfCards = deckBuilder.buildDeck();
+        Collections.shuffle(deckOfCards);
+
+    }//end shuffle
+
 
     public void deal(){
-        int index1 = rnd.nextInt();
-        int index2 = rnd.nextInt();
+        List<Card> card = new ArrayList<Card>();
+        card.add(deckOfCards.get(0));
+        card.add(deckOfCards.get(1));
 
-        if(index1 == index2)
-        {
-            //get a new index2, print out the card 1 and remove it from the deck
-            index2 = rnd.nextInt();
-            //System.out.println(pickCards.get(index1));
-            pickCards.remove(index1);
-
-
-            //System.out.println(pickCards.get(index2));
-            pickCards.remove(index2);
-        }
-        else
-        {
-            //keep index2, print out the card and remove it from the deck
-
-            //System.out.println(pickCards.get(index1));
-            pickCards.remove(index1);
-
-            //System.out.println(pickCards.get(index2));
-            pickCards.remove(index2);
-        }
+        deckOfCards.remove(0);
+        deckOfCards.remove(1);
 
 
 
-    }//end deal Method
+      }//end method deal
 
     public void hit(){
-        int index3 = rnd.nextInt();
-        //System.out.println(pickCards.get(index3));
-        pickCards.remove(index3);
+        deckOfCards.get(0);
+        deckOfCards.remove(0);
 
-    }//end hit method
+    }//end hit
 
 }//end class Dealer
