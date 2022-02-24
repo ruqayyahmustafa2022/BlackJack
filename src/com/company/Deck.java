@@ -25,8 +25,8 @@ public class Deck {
         for (int j = 0; j < MAX_SUITS; j++) {
             for (int i = 0; i < MAX_RANK; i++) {
                 deck.add(new Card(suit[j], rank[i], value[i]));
-                deck.get(i).Print();
-                System.out.println(deck.size());
+                //deck.get(i).Print();
+                //System.out.println(deck.size());
             }//end for i to MAX_CARDS
         }//end for j to MAX_SUITS
         return deck;

@@ -24,9 +24,9 @@ public class Dealer{
 
     public int deal(){
 
-        System.out.println("Your first card is a ");
+        System.out.print("Your first card is a ");
         deckOfCards.get(0).Print();
-        System.out.println("Your second card is a ");
+        System.out.print("Your second card is a ");
         deckOfCards.get(1).Print();
 
         totalValue = deckOfCards.get(0).getValue() + deckOfCards.get(1).getValue();
@@ -41,7 +41,7 @@ public class Dealer{
       }//end method deal
 
     public int hit(){
-        System.out.println("Your card is a ");
+        System.out.print("Your card is a ");
         deckOfCards.get(0).Print();
 
         hitValue = deckOfCards.get(0).getValue();
