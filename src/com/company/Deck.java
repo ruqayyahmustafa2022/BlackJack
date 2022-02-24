@@ -15,8 +15,6 @@ public class Deck {
     final int MAX_SUITS = 4;
     final int MAX_RANK = 13;
     final int MAX_CARDS = 52;
-    //Card[] newCard = new Card[MAX_CARDS];
-
 
     String[] suit = {"Diamonds", "Spades", "Clubs","Hearts"};
     String[] rank = {"2", "3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
@@ -27,7 +25,6 @@ public class Deck {
         for (int j = 0; j < MAX_SUITS; j++) {
             for (int i = 0; i < MAX_RANK; i++) {
                 deck.add(new Card(suit[j], rank[i], value[i]));
-                //System.out.println(deck.get(i).getSuit() + deck.get(i).getRank() + deck.get(i).getValue());
                 deck.get(i).Print();
                 System.out.println(deck.size());
             }//end for i to MAX_CARDS

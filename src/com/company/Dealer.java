@@ -10,6 +10,8 @@ public class Dealer{
 
     private List<Card> deckOfCards;
     Deck deckBuilder = new Deck();  //new instance of the deck class w/ deck of cards and
+    public int totalValue;
+    public int hitValue;
 
 
 
@@ -20,21 +22,35 @@ public class Dealer{
     }//end shuffle
 
 
-    public void deal(){
-        List<Card> card = new ArrayList<Card>();
-        card.add(deckOfCards.get(0));
-        card.add(deckOfCards.get(1));
+    public int deal(){
+
+        System.out.println("Your first card is a ");
+        deckOfCards.get(0).Print();
+        System.out.println("Your second card is a ");
+        deckOfCards.get(1).Print();
+
+        totalValue = deckOfCards.get(0).getValue() + deckOfCards.get(1).getValue();
+        System.out.println("Your total is " + totalValue + ".");
 
         deckOfCards.remove(0);
         deckOfCards.remove(1);
 
+        return totalValue;
 
 
       }//end method deal
 
-    public void hit(){
-        deckOfCards.get(0);
+    public int hit(){
+        System.out.println("Your card is a ");
+        deckOfCards.get(0).Print();
+
+        hitValue = deckOfCards.get(0).getValue();
+        System.out.print("Hit value: " + hitValue + '\n');
+
         deckOfCards.remove(0);
+
+
+        return hitValue;
 
     }//end hit
 

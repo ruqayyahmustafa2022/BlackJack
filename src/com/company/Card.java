@@ -39,7 +39,7 @@ public class Card {
         return value;
     }
 
-
+    //this constructor takes in the parameters of the card
     public Card(String cardSuit, String cardRank, int cardValue)
     {
         suit = cardSuit;
@@ -48,9 +48,9 @@ public class Card {
         //System.out.println("Suit: " + suit + '\n' + "Rank: " + rank + '\n' + "Value: " + value + '\n');
     }
 
-    //test
+    //this method prints out the values of the card
     public void Print(){
-        System.out.println("Suit: " + suit + '\n' + "Rank: " + rank + '\n' + "Value: " + value + '\n');
+        System.out.println(rank + " of " + suit );
     }
 
 }//end class Card
