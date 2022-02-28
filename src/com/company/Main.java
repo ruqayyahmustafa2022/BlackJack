@@ -59,6 +59,9 @@ public class Main {
 
         if(playerCounter == 21) {
             System.out.println("Player has Blackjack!");
+            cardPicks.revealDealer("Dealer");
+            dealerCounter += dealerCounter;
+            cardPicks.determineWinner(playerCounter, dealerCounter);
         }
         else if(playerCounter > 21)
                 System.out.println("You bust! You lose!");

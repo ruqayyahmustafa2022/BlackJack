@@ -8,13 +8,18 @@ public class Dealer{
 
      */
 
-    private List<Card> deckOfCards;
+    public List<Card> deckOfCards;
     Deck deckBuilder = new Deck();  //new instance of the deck class w/ deck of cards and
     public int totalValue;
     public int dealerTotalValue;
     public int hitValue;
     public int dealerHitValue;
+    private String cardRank;
     Scanner playerChoice = new Scanner(System.in);
+    CheckForAce aceCheck1 = new CheckForAce();
+    CheckForAce aceCheck2 = new CheckForAce();
+
+
 
 
 
@@ -22,28 +27,46 @@ public class Dealer{
         deckOfCards = deckBuilder.buildDeck();
         Collections.shuffle(deckOfCards);
 
+        //this is test code... delete when bug is fixed
+        System.out.println("*********************************DELETE 10 CARD OUTPUTS*********************************");
+        for(int i = 0; i< 10; i++) {
+            System.out.print((i+1) + ": ");
+            deckOfCards.get(i).Print();
+        }
+        System.out.println("*********************************DELETE 10 CARD OUTPUTS*********************************" + '\n');
+
+
     }//end shuffle
 
 
     public int deal(String player){
 
-
-
         if(player.equals("Player"))
         {
             System.out.print(player + "'s first card is a ");
             deckOfCards.get(0).Print();
+           // cardRank.equals(deckOfCards.get(0).getRank());
+           // aceCheck1.switchValue(cardRank);
 
             System.out.print(player + "'s second card is a ");
             deckOfCards.get(1).Print();
-            //CheckForAce aceCheck = new CheckForAce(deckOfCards.get(0), deckOfCards.get(1));
-            //CheckForAce aceCheck = new CheckForAce();
+          //  cardRank.equals(deckOfCards.get(1).getRank());
+           // aceCheck2.switchValue(cardRank);
 
-            totalValue = deckOfCards.get(0).getValue() + deckOfCards.get(1).getValue();
+            totalValue = deckOfCards.get(0).getValue() + deckOfCards.get(1).getValue() + aceCheck1.aceValue + aceCheck2.aceValue;
+            /*
+            for(int i= 0; i < 2; i++){
+                CheckForAce[] aceCheck = new CheckForAce();
+                aceCheck(i).switchValue(cardRank);
+
+            }//end switch Ace value
+
+             */
             System.out.println(player + ",your total is " + totalValue + ".");
             System.out.println("********************************************" + '\n');
             deckOfCards.remove(0);
-            deckOfCards.remove(1);
+            deckOfCards.remove(0);
+
         }
         else if(player.equals("Dealer"))
         {
@@ -53,10 +76,12 @@ public class Dealer{
             System.out.println(player + "'s total is " + totalValue + ".");
             System.out.println("********************************************" + '\n');
             deckOfCards.remove(0);
-            deckOfCards.get(0);
+            System.out.print("**HIDDEN DEALER CARD: ");
+            deckOfCards.get(0).Print();
             //deckOfCards.remove(1);
 
         }
+
 
         return totalValue;
 
@@ -87,7 +112,7 @@ public class Dealer{
         else if(dealerCount <=21 && dealerCount > playerCount)
             System.out.println("The house wins.");
         else if(playerCount == 21 && dealerCount == 21)
-            System.out.println("Everyone wins!");
+            System.out.println("It's a Push. No winners. No losers.");
         else
             System.out.println("It's a Push. No winners. No losers.");
     }//end determine winner
@@ -97,15 +122,16 @@ public class Dealer{
 
         do{
             System.out.print("Dealer has a ");
-            deckOfCards.get(1).Print();
+            deckOfCards.get(0).Print();
 
-            totalValue = deckOfCards.get(1).getValue() + totalValue;
+            totalValue = deckOfCards.get(0).getValue() + totalValue;
             System.out.println(player + ",your total is " + totalValue + ".");
             System.out.println("********************************************" + '\n');
-            deckOfCards.remove(1);
+            deckOfCards.remove(0);
 
 
         }while(totalValue < 17); //end while less than 17
+
         return totalValue;
 
     }//end reveal dealer card
