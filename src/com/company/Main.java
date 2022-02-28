@@ -18,57 +18,54 @@ public class Main {
 	 */
         //----Program Starts Here-----
         Random rnd = new Random(52);
-        Dealer pickCard = new Dealer();
         Deck newDeck = new Deck();
         Scanner userInput = new Scanner(System.in);
         String playerResponse;
         String playerResponseHit;
-        int cardCounter;
+        int playerCounter;
+        int dealerCounter;
         int newTotalValue;
 
         newDeck.buildDeck();
 
-        System.out.println("Dealer: Would you like to play? Yes or No?");
-        playerResponse = userInput.next();
+        System.out.println("Dealer: Welcome to the Blackjack table. Let's Play!");
 
-        if(playerResponse.equals("Yes"))
-        {
-            System.out.println("Here are your first two cards");
-            Dealer twoCards = new Dealer();
-            twoCards.shuffleDeck();
-            twoCards.deal();
-            cardCounter = twoCards.totalValue;
-            if (cardCounter < 21) {
-                System.out.println("Dealer: Would you like to Stay or Hit?");
-                playerResponseHit = userInput.next();
-                if (playerResponseHit.equals("Hit")) {
-                    twoCards.hit();
-                    newTotalValue = cardCounter + twoCards.hitValue;
-                    System.out.println("You new total is " + (newTotalValue));
+            System.out.println("Here are your first two cards.");
+            Dealer cardPicks = new Dealer();
+            cardPicks.shuffleDeck();
+            cardPicks.deal("Player");
+            playerCounter = cardPicks.totalValue;
+            cardPicks.deal("Dealer");
+            dealerCounter = cardPicks.totalValue;
 
-                }
-                else {
-                    System.out.println("No more cards for you. Your total is " + cardCounter);
-                }
-            }//end if cardCounter
-            else if(cardCounter == 21)
-                System.out.println("You're a winner!");
-            else
-                System.out.println("You busted! Better luck next time!");
+            while(playerCounter < 21) {
+                    System.out.println("Dealer: Would you like to Stay or Hit?");
+                    playerResponseHit = userInput.next();
+                    if (playerResponseHit.equals("Hit")) {
+                        cardPicks.hit();
+                        playerCounter = playerCounter + cardPicks.hitValue;
+                        System.out.println("Player, your new total is " + (playerCounter));
+
+                    }//end if Hit
+                    else {
+                        System.out.println("No more cards for you. Your total is " + playerCounter);
+                        cardPicks.revealDealer("Dealer");
+                        dealerCounter += dealerCounter;
+                        break;
+                    }//end else statement
+
+            }//end while playerCounter
+
+
+        if(playerCounter == 21) {
+            System.out.println("Player has Blackjack!");
         }
+        else if(playerCounter > 21)
+                System.out.println("You bust! You lose!");
         else
-            System.out.println("Please leave the table NOW!");
+            cardPicks.determineWinner(playerCounter, dealerCounter);
 
-
-
-
-
-
-
-
-
-
-
+        //evaluate the results
 
     }//end main
 }//end Main

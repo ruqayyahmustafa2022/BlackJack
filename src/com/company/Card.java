@@ -50,7 +50,7 @@ public class Card {
 
     //this method prints out the values of the card
     public void Print(){
-        System.out.println(rank + " of " + suit );
+        System.out.println(rank + " of " + suit + ".");
     }
 
 }//end class Card
