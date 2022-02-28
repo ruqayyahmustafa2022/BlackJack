@@ -61,6 +61,7 @@ public class Main {
             System.out.println("Player has Blackjack!");
             cardPicks.revealDealer("Dealer");
             dealerCounter += dealerCounter;
+            System.out.println(dealerCounter);
             cardPicks.determineWinner(playerCounter, dealerCounter);
         }
         else if(playerCounter > 21)
@@ -69,6 +70,7 @@ public class Main {
             cardPicks.determineWinner(playerCounter, dealerCounter);
 
         //evaluate the results
+
 
     }//end main
 }//end Main

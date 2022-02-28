@@ -107,12 +107,23 @@ public class Dealer{
 
     public void determineWinner(int playerCount, int dealerCount){
         //this code will determine who won the game
-        if(playerCount <= 21 && playerCount > dealerCount)
-            System.out.println("Player wins!");
-        else if(dealerCount <=21 && dealerCount > playerCount)
-            System.out.println("The house wins.");
-        else if(playerCount == 21 && dealerCount == 21)
+        System.out.println("playerCount = " + playerCount + "    dealerCount = " + dealerCount);
+        if(playerCount == 21 && dealerCount == 21)
+            System.out.println("Blackjack for both Player and Dealer. It's a Push. No winners. No losers.");
+        else if(playerCount < 21 && dealerCount < 21 && playerCount == dealerCount)
             System.out.println("It's a Push. No winners. No losers.");
+        else if(playerCount > 21 && dealerCount > 21)
+            System.out.println("Bust. Everyone loses!");
+        else if(dealerCount == 21 && dealerCount > playerCount )
+            System.out.println("Dealer has Blackjack. The house wins!");
+        else if(playerCount < 21 && dealerCount > 21)
+            System.out.println("Dealer Busts! Player wins!");
+        else if(playerCount > dealerCount && dealerCount == 21)
+            System.out.println("Player Busts! The house wins!");
+        else if(playerCount > dealerCount)
+            System.out.println("Player Wins");
+        else if(playerCount < dealerCount)
+            System.out.println("Dealer Wins");
         else
             System.out.println("It's a Push. No winners. No losers.");
     }//end determine winner
